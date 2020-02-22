@@ -25,6 +25,9 @@
           </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item text-center">
+              {% if request.user.is_authenticated %}
+              <button type="button" ><a href="{% url 'restaurant-favorite' restaurant.id %}">add to favorite</button>
+                {%endif%}
                 <a href="{% url 'restaurant-detail' restaurant.id %}" class="btn btn-outline-dark">View</a>
             </li>
           </ul>
@@ -33,4 +36,3 @@
     {% endfor %}
 </div>
 {% endblock content %}
-
